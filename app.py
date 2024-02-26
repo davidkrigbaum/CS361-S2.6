@@ -7,7 +7,15 @@ app = Flask(__name__)
 
 RANDOM_WORD_API_URL = "https://random-word-api.herokuapp.com/word?number={random}"
 DUCKDUCKGO_HTML_URL = "https://html.duckduckgo.com/html/?q={query}"
+
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+
+# Hardcode URLs in case other APIs fail
+backup_list = ['https://huckleberrycare.com/',
+    'https://asheron.fandom.com/wiki/Home',
+    'https://knowyourmeme.com/',
+    'https://interestingengineering.com/'
+]
 
 def get_random_search_query():
     try:
@@ -48,7 +56,9 @@ def get_first_result_url():
             url = extract_first_result_url(response.content)
             if url:
                 return jsonify({'url': url})
-    return jsonify({'error': 'Failed to fetch URL'})
+    else:
+        url = random.choice(backup_list)
+        return jsonify({'url': url})
 
 if __name__ == '__main__':
     app.run()
