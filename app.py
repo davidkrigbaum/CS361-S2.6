@@ -56,9 +56,8 @@ def get_first_result_url():
             url = extract_first_result_url(response.content)
             if url:
                 return jsonify({'url': url})
-    else:
-        url = random.choice(backup_list)
-        return jsonify({'url': url})
+    url = random.choice(backup_list)
+    return jsonify({'url': url})
 
 if __name__ == '__main__':
     app.run()

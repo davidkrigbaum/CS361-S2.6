@@ -1,6 +1,11 @@
 # CS361-S2.6
-A. Clear instructions for how to programmatically REQUEST data from the microservice you implemented. Include an example call.
+A. Simply perform you need to make an HTTP GET request at the root of https://valid-url.adaptable.app/.
 
-B. Clear instructions for how to programmatically RECEIVE data from the microservice you implemented.
+Example using Python:
+import requests
+response = requests.get(https://valid-url.adaptable.app/)
+data = response.json()
 
-C. UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your partner (and your grader) will understand
+B. The microservice is set up to handle incoming GET requests. It will return a URL as JSON data. Receive the response (see 'data = response.json()' above) and parse the JSON from this format: {"url":"https://example.com"}. For further clarification, see test-call.py.
+
+C. UML sequence diagram: ![UML sequence diagram](https://github.com/davidkrigbaum/CS361-S2.6/blob/main/UML.jpg)
