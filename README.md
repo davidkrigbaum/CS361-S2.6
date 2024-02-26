@@ -1,5 +1,5 @@
 # CS361-S2.6
-A. Simply perform you need to make an HTTP GET request at the root of https://valid-url.adaptable.app/.
+A. Simply make an HTTP GET request at the root of https://valid-url.adaptable.app/.
 
 Example:
 ```python:
