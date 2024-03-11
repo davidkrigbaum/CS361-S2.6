@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 import requests
 from bs4 import BeautifulSoup
 import random
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 RANDOM_WORD_API_URL = "https://random-word-api.herokuapp.com/word?number={random}"
 DUCKDUCKGO_HTML_URL = "https://html.duckduckgo.com/html/?q={query}"
